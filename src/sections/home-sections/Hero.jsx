@@ -1,6 +1,6 @@
 import React from "react";
-import hero from '../assets/hero.png'
-import Searchbar from "../components/Searchbar";
+import hero from '../../assets/hero.png';
+import Searchbar from "../../components/Searchbar";
 
 const Hero = () => {
   return (
@@ -15,8 +15,8 @@ const Hero = () => {
         </div>
         <div className="absolute bg-black bg-opacity-50 inset-0 flex flex-col justify-center items-center">
           <div className="pb-24">
-            <h1 className="text-white text-3xl">
-              Empowering your healthcare choices with insightful reviews for
+            <h1 className="text-white font-bold text-3xl">
+              Empower your healthcare choices with insightful reviews for
               better care.
             </h1>
           </div>

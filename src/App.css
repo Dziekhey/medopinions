@@ -12,3 +12,28 @@
 body {
     background-color: #d9d9d9;
 }
+
+.custom_line::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -10px;
+  height: 7px;
+  width: 60%;
+  background: linear-gradient(90deg, rgba(10,115,176,1) 8%, rgba(49,202,251,1) 36%, rgba(173,173,173,1) 68%, rgba(217,217,217,1) 84%);
+  z-index: 1000;
+  border-radius: 30px;
+}
+
+
+.custom_title::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -10px;
+  height: 7px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(247,247,247,1) 10%, rgba(173,173,173,1) 25%, rgba(43,192,243,1) 40%, rgba(17,113,170,1) 55%, rgba(43,192,243,1) 69%, rgba(173,173,173,1) 83%, rgba(247,247,247,1) 93%);
+  z-index: 1000;
+  border-radius: 30px;
+}
