@@ -9,9 +9,9 @@ export const departments = [
   ];
 
 export const emojis = [
-  { name: "Excellent", value: "😍" },
-  { name: "Good", value: "😄" },
-  { name: "Average", value: "🙂" },
-  { name: "Poor", value: "😞" },
-  { name: "Terrible", value: "😠" }
+  { name: "Excellent", value: "😍", number: 5 },
+  { name: "Good", value: "😄", number: 4 },
+  { name: "Average", value: "🙂", number: 3 },
+  { name: "Poor", value: "😞", number: 2 },
+  { name: "Terrible", value: "😠", number: 1 }
 ];

@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../assets/croppedlogo.png";
 import { navigations } from "../data/Navlinks";
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 const Navbar = () => {
   return (
@@ -16,11 +17,18 @@ const Navbar = () => {
             />
           </div>
         </Link>
+        {location.pathname === "/searched-hospitals" && (
+          <div className="w-[500px] pt-2">
+            <Searchbar />
+          </div>
+        )}
         <div className="flex items-center">
           {navigations.map((navigation, index) => (
-            <div className="flex pt-3" key={index}>
-              <h1 className="px-10 font-semibold">{navigation.title}</h1>
-            </div>
+            <Link to={`${navigation.route}`}>
+              <div className="flex pt-3" key={index}>
+                <h1 className="px-10 font-semibold">{navigation.title}</h1>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

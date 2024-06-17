@@ -5,10 +5,9 @@ import {
   Typography,
   Modal,
   TextField,
-  IconButton,
-  MenuItem,
+  IconButton
 } from "@mui/material";
-import { departments, emojis } from "../data/Reviews";
+import { emojis } from "../data/Reviews";
 import toast from "react-hot-toast";
 
 const style = {
@@ -24,18 +23,16 @@ const style = {
   p: 4,
 };
 
-const ReviewModal = ({ open, handleClose, handleNewReview }) => {
+const ReviewModal = ({ open, handleClose, id }) => {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [comment, setComment] = useState("");
-  const [department, setDepartment] = useState("");
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/reviews`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/reviews/${id}`, {
         method: "POST",
         body: JSON.stringify({
           rating: selectedEmoji,
-          department: department,
           comment: comment,
         }),
         headers: { "Content-Type": "application/json"}
@@ -44,11 +41,9 @@ const ReviewModal = ({ open, handleClose, handleNewReview }) => {
       const data = await response.json();
 
       if (response.status === 201) {
-        handleNewReview(data);
         toast.success("Review was posted successfully");
         setSelectedEmoji(null);
         setComment("");
-        setDepartment("");
         handleClose();
       } else {
         toast.error(data.errorMsg);
@@ -61,7 +56,6 @@ const ReviewModal = ({ open, handleClose, handleNewReview }) => {
   const CloseAndReset = () => {
     setSelectedEmoji(null);
     setComment("");
-    setDepartment("");
     handleClose();
   }
 
@@ -101,21 +95,6 @@ const ReviewModal = ({ open, handleClose, handleNewReview }) => {
             </Box>
           ))}
         </Box>
-        <TextField
-          select
-          label="Choose department"
-          value={department}
-          onChange={(e) => setDepartment(e.target.value)}
-          fullWidth
-          sx={{ color: ''}}
-          margin="normal"
-        >
-          {departments.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
         <TextField
           label="Comment"
           multiline

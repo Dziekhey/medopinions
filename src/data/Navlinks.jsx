@@ -1,14 +1,11 @@
 export const navigations = [
     {
+        title: 'Home',
+        route: '/'
+    },
+    {
         title: 'Hospitals',
-        route: '/'
+        route: '/searched-hospitals'
     },
-    {
-        title: 'Doctors',
-        route: '/'
-    },
-    {
-        title: 'Health News',
-        route: '/'
-    },
+    
 ]

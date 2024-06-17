@@ -1,17 +1,22 @@
 import React from "react";
 
-const CarouselCard = ({ image, title }) => {
+const CarouselCard = ({ image, title, bgcolor, handleFilter }) => {
   return (
-    <>
-      <div className="flex flex-col justify-center items-center">
+    <div
+      className="flex flex-col justify-center items-center p-2 cursor-pointer"
+      onClick={() => handleFilter(title)}
+    >
+      <div
+        className="flex flex-col justify-center items-center p-4 rounded-full transition duration-300"
+      >
         <img
           src={image}
-          alt=""
-          className="size-[4rem] lg:size-[12rem] rounded-full object-cover object-center"
+          alt={title}
+          className="h-16 w-16 lg:h-32 lg:w-32 rounded-full object-cover object-center"
         />
-        <span className="py-5 font-semibold text-xs lg:text-xl">{title}</span>
+        <span style={{color: bgcolor}} className="pt-3 font-semibold text-xs lg:text-xl">{title}</span>
       </div>
-    </>
+    </div>
   );
 };
 
