@@ -1,5 +1,5 @@
 import React from "react";
-import sample from "../../assets/hero.png";
+import sample from "../../assets/clinic.png";
 
 const IntroDetails = ({ hospital, emojis }) => {
   const getRatingNumber = (rating) => {

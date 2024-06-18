@@ -1,5 +1,5 @@
 import React from "react";
-import sample from "../assets/hero.png";
+import sample from "../assets/clinic.png";
 import { Link } from "react-router-dom";
 
 const HospitalCard = ({ hospital, emojis }) => {
@@ -31,12 +31,12 @@ const getAverageRating = (reviewArray) => {
     <>
       {hospital && (
         <Link to={`/hospital/${hospital._id}`}>
-          <div className="flex item-center justify-between bg-light_grey shadow-md lg:w-[26rem] px-3 py-2">
+          <div className="flex item-center justify-between bg-light_grey shadow-md lg:w-[27rem] px-3 py-2">
             <div className="flex items-center lg:gap-5">
               <img
                 src={sample}
                 alt="Menu Image"
-                className="w-[6rem] h-[6rem] object-cover"
+                className="w-[7rem] h-[6rem] object-cover"
               />
               <div className="space-y-1 lg:max-w-2xl">
                 <p className="font-semibold text-md">{hospital.name}</p>

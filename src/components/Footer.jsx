@@ -24,13 +24,13 @@ const Footer = () => {
               </Link>
             </li>
             <li className="mb-2">
-              <Link to="/services" className="hover:underline">
-                Services
+              <Link to="/sign_up" className="hover:underline">
+                Sign Up
               </Link>
             </li>
             <li className="mb-2">
-              <Link to="/contact" className="hover:underline">
-                Contact
+              <Link to="/sign_in" className="hover:underline">
+                Sign In
               </Link>
             </li>
           </ul>

@@ -35,7 +35,7 @@ const TopHospitals = ({ emojis }) => {
 
   return (
     <>
-      <section className="p-10">
+      <section className="px-6 py-10">
         <div>
           <h1 className="custom_line relative font-semibold text-xl">
             Here are some highly rated hospitals
