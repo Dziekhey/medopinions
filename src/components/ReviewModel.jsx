@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import { emojis } from "../data/Reviews";
 import toast from "react-hot-toast";
+import { useAuth } from "../services/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -26,6 +28,12 @@ const style = {
 const ReviewModal = ({ open, handleClose, id }) => {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [comment, setComment] = useState("");
+  const {token} = useAuth();
+  const navigate = useNavigate();
+
+if (!token) {
+  navigate('/sign_in')
+}
 
   const handleSubmit = async () => {
     try {

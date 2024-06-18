@@ -14,7 +14,7 @@ const PopularHospitals = ({ emojis }) => {
   }
 
   const popularHospitals = (hospitals) => {
-    return hospitals.filter((hospital) => hospital.reviews.length > 7);
+    return hospitals.filter((hospital) => hospital.reviews.length >= 6);
   };
 
   return (

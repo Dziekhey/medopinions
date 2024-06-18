@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/croppedlogo.png";
 import { navigations } from "../data/Navlinks";
-import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
+import { useAuth } from "../services/AuthProvider";
 
 const Navbar = () => {
+  const location = useLocation();
+  const [active, setActive] = useState(location.pathname);
+  const { logOut } = useAuth();
+  const token = localStorage.getItem("token");
+
   return (
     <>
-      <section className="h-20 bg-light_grey flex justify-between bg-opacity-75 sticky top-0 z-50">
+      <section className="h-20 bg-light_grey flex justify-between sticky top-0 z-50">
         <Link to="/">
           <div>
             <img
@@ -23,13 +29,39 @@ const Navbar = () => {
           </div>
         )}
         <div className="flex items-center">
-          {navigations.map((navigation, index) => (
-            <Link to={`${navigation.route}`}>
-              <div className="flex pt-3" key={index}>
-                <h1 className="px-10 font-semibold">{navigation.title}</h1>
+          <div className="flex items-center">
+            {navigations.map((navigation, index) => (
+              <Link
+                to={`${navigation.route}`}
+                key={index}
+                onClick={() => setActive(navigation.route)}
+              >
+                <div
+                  style={
+                    active === navigation.route
+                      ? { color: "#0A73B0" }
+                      : { color: "" }
+                  }
+                  className="flex pt-3"
+                >
+                  <h1 className="px-10 font-semibold">{navigation.title}</h1>
+                </div>
+              </Link>
+            ))}
+          </div>
+          {token ? (
+            <Link onClick={logOut}>
+              <div className="flex pt-3">
+                <h1 className="px-10 font-semibold">Log Out</h1>
               </div>
             </Link>
-          ))}
+          ) : (
+            <Link to="/sign_in">
+              <div className="flex pt-3">
+                <h1 className="px-10 font-semibold">Sign in</h1>
+              </div>
+            </Link>
+          )}
         </div>
       </section>
     </>

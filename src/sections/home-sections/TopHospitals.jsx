@@ -27,10 +27,10 @@ const TopHospitals = ({ emojis }) => {
     return parseInt(totalRating / reviews.length);
   };
 
-  // Get hospitals where average rating === 5 (Excellent)
+  // Get hospitals where average rating is 5 (Excellent) or 4 (Good)
   const topRatedExcellentHospitals = hospitals.filter((hospital) => {
     const averageRating = calculateAverageRating(hospital.reviews);
-    return averageRating === 4 || 5; // Assuming 5 corresponds to "Excellent" in your emojis array
+    return averageRating === 5 || averageRating === 4;
   });
 
   return (

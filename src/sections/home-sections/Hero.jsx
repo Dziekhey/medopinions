@@ -14,7 +14,7 @@ const Hero = () => {
           />
         </div>
         <div className="absolute bg-black bg-opacity-50 inset-0 flex flex-col justify-center items-center">
-          <div className="pb-24">
+          <div className="pb-8">
             <h1 className="text-white font-bold text-3xl">
               Empower your healthcare choices with insightful reviews for
               better care.

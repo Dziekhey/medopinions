@@ -38,7 +38,7 @@ const IntroDetails = ({ hospital, emojis }) => {
               className="h-60 w-60 object-cover"
             />
             <div className="space-y-3 pl-3 lg:max-w-2xl">
-              <p className="font-semibold text-blue text-4xl">
+              <p className="font-semibold text-blue text-3xl">
                 {hospital.name}
               </p>
               <p className="text-2xl">

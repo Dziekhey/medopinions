@@ -31,17 +31,17 @@ const getAverageRating = (reviewArray) => {
     <>
       {hospital && (
         <Link to={`/hospital/${hospital._id}`}>
-          <div className="flex item-center justify-between hover:scale-110 translate-x-2 duration-75 bg-light_grey shadow-md lg:w-[25rem] px-3 py-2">
+          <div className="flex item-center justify-between bg-light_grey shadow-md lg:w-[26rem] px-3 py-2">
             <div className="flex items-center lg:gap-5">
               <img
                 src={sample}
                 alt="Menu Image"
-                className="w-[7rem] h-[7rem] object-cover"
+                className="w-[6rem] h-[6rem] object-cover"
               />
-              <div className="space-y-1 pl-3 lg:max-w-2xl">
-                <p className="font-semibold text-xl">{hospital.name}</p>
-                <p>{getAverageRating(hospital.reviews)}</p>
-                <span className="text-blue">({getTotalReview(hospital.reviews)} reviews)</span>
+              <div className="space-y-1 lg:max-w-2xl">
+                <p className="font-semibold text-md">{hospital.name}</p>
+                <p>{getAverageRating(hospital.reviews)}
+                <span className="text-blue text-sm">{' '}({getTotalReview(hospital.reviews)} reviews)</span></p>
                 <p>{hospital.region}{' '}Region,{' '}{hospital.city}</p>
               </div>
             </div>

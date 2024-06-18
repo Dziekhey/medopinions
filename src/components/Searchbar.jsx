@@ -29,7 +29,7 @@ const Searchbar = () => {
       <div className="relative">
         <input
           type="search"
-          placeholder="Search"
+          placeholder="Search for Hospitals by name"
           className="w-full p-4 rounded-full bg-light_grey border-blue border-4 focus:outline-none"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

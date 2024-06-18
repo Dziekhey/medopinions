@@ -1,0 +1,118 @@
+.signup-display {
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    /* background: url("../../assets/hero.jpg") no-repeat; */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* .signup-display::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 5, 0.671); 
+    z-index: 1;
+  } */
+  
+  /* Ensure any child content is above the overlay */
+  /* .signup-display > * {
+    position: relative;
+    z-index: 2;
+  } */
+  
+    
+    .signup-wrapper {
+      width: 430px;
+      /* background: transparent; */
+      border: 2px solid rgba(29, 25, 25, 0.2);
+      /* backdrop-filter: blur(10px); */
+      color: black;
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+      border-radius: 20px;
+      padding: 10px 40px;
+      margin-top: 40px;
+    }
+    
+    .signup-wrapper h1 {
+      font-size: 25px;
+      text-align: center;
+      padding-top: 5px;
+    }
+    
+    .signup-wrapper .signup-input-box {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      margin: 30px 0;
+    }
+    
+    .signup-input-box input {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      border: 2px solid rgba(29, 25, 25, 0.2);
+      border-radius: 40px;
+      font-size: 16px;
+      color: black;
+      padding: 20px 45px 20px 20px;
+    }
+    
+    .signup-input-box input::placeholder {
+      color: black;
+    }
+    
+    .signup-input-box ion-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+    }
+    
+    .signup-button {
+      width: 100%;
+      height: 40px;
+      background: #004AAD;
+      border: none;
+      outline: none;
+      border-radius: 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      font-size: 16px;
+      color: #fff;
+      font-weight: 700;
+      /* margin-left: 30px; */
+    }
+    
+    .signup-button:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+      background: #0f5ec5;
+    }
+    
+    .login-container {
+      display: flex;
+      padding-top: 15px;
+      text-align: center;
+      justify-content: center;
+    }
+    
+    .login-link {
+      margin-left: 10px;
+      color: #004AAD;
+      font-weight: 700;
+    }
+    
+    .login-link:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+    
