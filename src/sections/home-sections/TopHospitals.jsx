@@ -28,14 +28,17 @@ const TopHospitals = ({ emojis }) => {
   };
 
   // Get hospitals where average rating is 5 (Excellent) or 4 (Good)
-  const topRatedExcellentHospitals = hospitals.filter((hospital) => {
+  const topRatedExcellentHospitals = hospitals
+  .filter((hospital) => {
     const averageRating = calculateAverageRating(hospital.reviews);
     return averageRating === 5 || averageRating === 4;
-  });
+  })
+  .slice(0, 3);
+
 
   return (
     <>
-      <section className="px-6 py-10">
+      <section className="p-10">
         <div>
           <h1 className="custom_line relative font-semibold text-xl">
             Here are some highly rated hospitals

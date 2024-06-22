@@ -1,13 +1,13 @@
 import React, { useState, createContext, useContext } from 'react';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom'; // Add this import
+import { useNavigate } from 'react-router-dom'; 
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
   const loginAction = async (data) => {
     try {
@@ -49,7 +49,8 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("email");
     localStorage.removeItem("first_name");
     localStorage.removeItem("last_name");
-    navigate("/sign_up");
+    toast.success("Logout was successful")
+    navigate("/");
   };
 
   return (

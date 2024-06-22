@@ -30,12 +30,12 @@ const Searchbar = () => {
         <input
           type="search"
           placeholder="Search for Hospitals by name"
-          className="w-full p-4 rounded-full bg-light_grey border-blue border-4 focus:outline-none"
+          className="w-full p-2 md:p-3 lg:p-4 rounded-full bg-light_grey border-blue border-4 focus:outline-none"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <button
-          className="absolute right-3 top-1/2 bg-blue -translate-y-1/2 p-2 rounded-full"
+          className="absolute right-3 top-1/2 bg-blue -translate-y-1/2 p-1 lg:p-2 rounded-full"
           onClick={handleSearch}
         >
           <SearchIcon sx={{ color: "white" }} />

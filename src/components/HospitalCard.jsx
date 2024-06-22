@@ -31,12 +31,12 @@ const getAverageRating = (reviewArray) => {
     <>
       {hospital && (
         <Link to={`/hospital/${hospital._id}`}>
-          <div className="flex item-center justify-between bg-light_grey shadow-md lg:w-[27rem] px-3 py-2">
-            <div className="flex items-center lg:gap-5">
+          <div className="flex item-center flex-col bg-light_grey shadow-md lg:w-[20rem] rounded-xl px-3 py-2">
+            <div className="flex items-center flex-col lg:gap-5">
               <img
                 src={sample}
                 alt="Menu Image"
-                className="w-[7rem] h-[6rem] object-cover"
+                className="w-full h-[15rem] object-cover rounded-lg"
               />
               <div className="space-y-1 lg:max-w-2xl">
                 <p className="font-semibold text-md">{hospital.name}</p>

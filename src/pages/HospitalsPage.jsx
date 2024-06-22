@@ -34,12 +34,6 @@ const HospitalsPage = () => {
     }
   };
 
-  const handlePageSizeChange = (event) => {
-    setItemsPerPage(Number(event.target.value));
-    // Reset to the first page when changing the number of items per page
-    setCurrentPage(1);
-  };
-
   const getPageData = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -68,7 +62,7 @@ const HospitalsPage = () => {
   return (
     <>
       <Navbar />
-      <div className="p-4">
+      <div className="p-10">
         <div>
           <LocationSlider />
         </div>
@@ -77,7 +71,7 @@ const HospitalsPage = () => {
         ) : searchResults.length === 0 ? (
           <p className="text-center font-bold">No hospitals found</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-2 py-5">
             {getPageData().map((hospital) => (
               <HospitalCard
                 emojis={emojis}

@@ -3,14 +3,22 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/croppedlogo.png";
 import { navigations } from "../data/Navlinks";
 import Searchbar from "./Searchbar";
+import MenuIcon from "@mui/icons-material/Menu";
 import { useAuth } from "../services/AuthProvider";
+import { useMediaQuery } from "@mui/material";
+import Menubar from "./Menubar";
 
 const Navbar = () => {
+  const isSmallScreen = useMediaQuery("(max-width:700px)");
+  const [open, setOpen] = useState(false);
   const location = useLocation();
   const [active, setActive] = useState(location.pathname);
   const { logOut } = useAuth();
   const token = localStorage.getItem("token");
-
+  
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
   return (
     <>
       <section className="h-20 bg-light_grey flex justify-between sticky top-0 z-50">
@@ -24,10 +32,13 @@ const Navbar = () => {
           </div>
         </Link>
         {location.pathname === "/searched-hospitals" && (
-          <div className="w-[500px] pt-2">
+          <div className="w-[500px] pt-5 lg:pt-2">
             <Searchbar />
           </div>
         )}
+        {
+          !isSmallScreen ? (
+
         <div className="flex items-center">
           <div className="flex items-center">
             {navigations.map((navigation, index) => (
@@ -63,6 +74,13 @@ const Navbar = () => {
             </Link>
           )}
         </div>
+          ) : (
+            <div onClick={toggleDrawer(true)} className="flex items-center px-5 pt-3" >
+              <MenuIcon />
+            </div>
+          )
+        }
+        <Menubar open={open} toggleDrawer={toggleDrawer} token={token} logOut={logOut} />
       </section>
     </>
   );

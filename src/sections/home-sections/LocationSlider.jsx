@@ -6,16 +6,46 @@ import { regions } from "../../data/Location";
 import CarouselCard from "../../components/CarouselCard";
 import useQueryHospitals from "../../hooks/useQueryHospitals";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@mui/material";
 
 const LocationSlider = () => {
+
+  const isSmallScreen = useMediaQuery("(max-width:580px)");
+
   const settings = {
-    dots: true,
+    dots: isSmallScreen ? false : true,
     infinite: true,
     speed: 500,
     slidesToShow: 6,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 950, 
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 780,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 505,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ]
   };
 
   const [selectedRegion, setSelectedRegion] = useState('');

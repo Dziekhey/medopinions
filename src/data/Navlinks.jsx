@@ -7,9 +7,5 @@ export const navigations = [
         title: 'Hospitals',
         route: '/searched-hospitals'
     },
-    // {
-    //     title: 'Sign in',
-    //     route: '/searched-hospitals'
-    // },
     
 ]

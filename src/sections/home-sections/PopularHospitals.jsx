@@ -14,12 +14,13 @@ const PopularHospitals = ({ emojis }) => {
   }
 
   const popularHospitals = (hospitals) => {
-    return hospitals.filter((hospital) => hospital.reviews.length >= 6);
+    const populars = hospitals.filter((hospital) => hospital.reviews.length >= 6);
+    return populars.slice(0, 3);
   };
 
   return (
     <>
-      <section className="px-6 py-10">
+      <section className="p-10">
         <div>
           <h1 className="custom_line relative font-semibold text-xl">
             Check reviews on some popular hospitals

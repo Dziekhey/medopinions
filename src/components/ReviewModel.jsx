@@ -28,8 +28,11 @@ const style = {
 const ReviewModal = ({ open, handleClose, id }) => {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [comment, setComment] = useState("");
-  const {token} = useAuth();
+  const [user, setUser] = useState("");
+  // const {token} = useAuth();
   const navigate = useNavigate();
+  const userId = localStorage.getItem("id");
+  const token = localStorage.getItem("token")
 
 if (!token) {
   navigate('/sign_in')
@@ -37,11 +40,13 @@ if (!token) {
 
   const handleSubmit = async () => {
     try {
+      setUser(userId)
       const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/reviews/${id}`, {
         method: "POST",
         body: JSON.stringify({
           rating: selectedEmoji,
           comment: comment,
+          user: user
         }),
         headers: { "Content-Type": "application/json"}
       });
@@ -52,6 +57,7 @@ if (!token) {
         toast.success("Review was posted successfully");
         setSelectedEmoji(null);
         setComment("");
+        setUser('')
         handleClose();
       } else {
         toast.error(data.errorMsg);
@@ -64,6 +70,7 @@ if (!token) {
   const CloseAndReset = () => {
     setSelectedEmoji(null);
     setComment("");
+    setUser('')
     handleClose();
   }
 
